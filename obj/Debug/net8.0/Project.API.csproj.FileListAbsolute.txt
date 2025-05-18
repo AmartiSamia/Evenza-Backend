@@ -175,4 +175,5 @@ C:\Users\VICTUS\source\repos\Project.API\Project.API\bin\Debug\net8.0\Microsoft.
 C:\Users\VICTUS\source\repos\Project.API\Project.API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.Design.dll
 C:\Users\VICTUS\source\repos\Project.API\Project.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\VICTUS\source\repos\Project.API\Project.API\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\VICTUS\source\repos\Project.API\Project.API\obj\Debug\net8.0\Project.API.sourcelink.json
 C:\Users\VICTUS\source\repos\Project.API\Project.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

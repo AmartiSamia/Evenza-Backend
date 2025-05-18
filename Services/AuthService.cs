@@ -40,7 +40,8 @@ namespace Project.API.Services
                 };
             }
 
-            // Validate admin key if role is admin
+            // Remove this block:
+            /*
             if (registerDto.Role.ToLower() == "admin" && registerDto.AdminKey != _adminSecretKey)
             {
                 return new AuthResponseDto
@@ -49,18 +50,10 @@ namespace Project.API.Services
                     Message = "Invalid admin secret key"
                 };
             }
+            */
 
-            // Make sure passwords match (redundant as we have model validation, but good practice)
-            if (registerDto.Password != registerDto.ConfirmPassword)
-            {
-                return new AuthResponseDto
-                {
-                    Success = false,
-                    Message = "Passwords don't match"
-                };
-            }
+            // Password confirmation check and user creation logic...
 
-            // Create new user
             var user = new User
             {
                 Id = Guid.NewGuid(),
@@ -77,7 +70,6 @@ namespace Project.API.Services
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            // Create JWT token
             var token = GenerateJwtToken(user);
 
             return new AuthResponseDto
@@ -96,6 +88,7 @@ namespace Project.API.Services
                 }
             };
         }
+
 
         public async Task<AuthResponseDto> LoginAsync(LoginDto loginDto)
         {

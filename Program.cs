@@ -35,9 +35,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
             ValidAudience = builder.Configuration["JwtSettings:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                builder.Configuration["JwtSettings:SecretKey"] ?? "default-secret-key-for-development-minimum-16-chars"))
+                builder.Configuration["JwtSettings:SecretKey"] ?? "default-secret-key-for-development-minimum-16-chars")),
+            RoleClaimType = "role"  // <- Ajoute cette ligne pour que [Authorize(Roles = "admin")] fonctionne correctement
         };
     });
+
 
 // Add CORS policy
 builder.Services.AddCors(options =>

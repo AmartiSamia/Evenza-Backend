@@ -30,5 +30,100 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Project.API.Controllers.AuthController",
+    "Method": "RegisterAdmin",
+    "RelativePath": "api/Auth/register-admin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerDto",
+        "Type": "Project.API.Models.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Project.API.Controllers.EventsController",
+    "Method": "GetAllEvents",
+    "RelativePath": "api/Events",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Project.API.Controllers.EventsController",
+    "Method": "CreateEvent",
+    "RelativePath": "api/Events",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "eventDto",
+        "Type": "Project.API.Models.EventDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Project.API.Controllers.EventsController",
+    "Method": "UpdateEvent",
+    "RelativePath": "api/Events/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "eventDto",
+        "Type": "Project.API.Models.EventDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Project.API.Controllers.EventsController",
+    "Method": "DeleteEvent",
+    "RelativePath": "api/Events/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Project.API.Controllers.UsersController",
+    "Method": "GetUsersByRole",
+    "RelativePath": "api/Users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "role",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
