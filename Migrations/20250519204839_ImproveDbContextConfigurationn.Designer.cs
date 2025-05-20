@@ -12,8 +12,8 @@ using Project.API.Data;
 namespace Project.API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250517104908_AddEventsTable")]
-    partial class AddEventsTable
+    [Migration("20250519204839_ImproveDbContextConfigurationn")]
+    partial class ImproveDbContextConfigurationn
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,6 +49,61 @@ namespace Project.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("Project.API.Entities.Registration", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<Guid>("EventId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime>("RegistrationDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETUTCDATE()");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId")
+                        .HasDatabaseName("IX_Registration_EventId");
+
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("IX_Registration_UserId");
+
+                    b.HasIndex("Email", "EventId")
+                        .IsUnique()
+                        .HasDatabaseName("IX_Registration_Email_EventId");
+
+                    b.HasIndex("UserId", "EventId")
+                        .IsUnique()
+                        .HasDatabaseName("IX_Registration_UserId_EventId");
+
+                    b.ToTable("Registrations");
                 });
 
             modelBuilder.Entity("Project.API.Entities.User", b =>
@@ -107,6 +162,27 @@ namespace Project.API.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Project.API.Entities.Registration", b =>
+                {
+                    b.HasOne("Project.API.Entities.Event", "Event")
+                        .WithMany()
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_Registration_Event");
+
+                    b.HasOne("Project.API.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("FK_Registration_User");
+
+                    b.Navigation("Event");
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

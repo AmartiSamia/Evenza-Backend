@@ -111,6 +111,64 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Project.API.Controllers.RegistrationsController",
+    "Method": "CreateRegistration",
+    "RelativePath": "api/Registrations",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registrationDto",
+        "Type": "Project.API.Models.RegistrationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Project.API.Controllers.RegistrationsController",
+    "Method": "GetAllRegistrations",
+    "RelativePath": "api/Registrations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Project.API.Controllers.RegistrationsController",
+    "Method": "ConfirmRegistration",
+    "RelativePath": "api/Registrations/{id}/confirm",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Project.API.Controllers.RegistrationsController",
+    "Method": "GetRegistrationsByEvent",
+    "RelativePath": "api/Registrations/event/{eventId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "eventId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Project.API.Controllers.UsersController",
     "Method": "GetUsersByRole",
     "RelativePath": "api/Users",
