@@ -22,4 +22,3 @@ Backend for Evenza event management platform. Built with ASP.NET Core. Works wit
 - Password hashing
 - CORS for React frontend
 
-Clean Architecture with Repository pattern and RESTful API design.
