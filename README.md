@@ -19,7 +19,7 @@ A robust and scalable backend API for the Evenza event management platform, buil
 
 ## 🛠️ Tech Stack
 
-- **Framework**: ASP.NET Core 6.0+
+- **Framework**: ASP.NET Core 9.0+
 - **Database**: SQL Server
 - **ORM**: Entity Framework Core
 - **Authentication**: JWT (JSON Web Tokens)
